@@ -1,31 +1,36 @@
 "use client"
 import { useEffect, useState } from "react"
 import Image from "next/image"
-import { Switch } from "@/components/ui/switch"
 import { Button } from "@/components/ui/button"
 import { useTheme } from "next-themes"
 import { Sun, Moon } from "lucide-react"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 
 export default function Home() {
-    const { theme, setTheme } = useTheme()
-    const [ mounted, setMounted ] = useState(false)
+  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
 
-    useEffect(() => {
-      setMounted(true)
-    }, [])
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
-    return (
-        <div>
-            <div className="flex justify-center space-x-5 mt-20">
-                <Button className="size-7"
-                    onClick={() =>
-                        setTheme(theme === "dark" ? "light" : "dark")
-                    }
-                >
-                    {mounted && (theme === "dark" ? <Sun /> : <Moon />)}
-                </Button>
-                <p className="text-center align-middle">Hello world!</p>
-            </div>
-        </div>
-    )
+  return (
+    <div className="flex flex-col h-full p-6">
+      <Card>
+        <CardHeader>
+          <CardTitle>Hello World!</CardTitle>
+        </CardHeader>
+        <CardDescription></CardDescription>
+        <CardContent>
+          <p className="">Welcome to my portfolio</p>
+        </CardContent>
+      </Card>
+    </div>
+  )
 }
